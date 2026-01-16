@@ -1,0 +1,786 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #e0c3fc 100%);
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #7f53ac 0%, #9d50bb 100%);
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(127, 83, 172, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ffd200, #f7971e);
+}
+
+header.scrolled {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+header.hidden {
+    transform: translateY(-100%);
+}
+
+header h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 0.25rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 1rem;
+    padding-bottom: 10px;
+}
+
+.nav-menu li {
+    flex-shrink: 0;
+}
+
+.nav-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+    padding: 0.5rem 0.75rem;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    white-space: nowrap;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-menu ul li a.active,
+.nav-menu ul li a:hover {
+    background: #ffd200;
+    color: #7f53ac;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 210, 0, 0.3);
+}
+
+.btn-todos {
+    background: #f7971e;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(247, 151, 30, 0.3);
+    width: auto;
+    min-height: 44px;
+}
+
+.btn-todos:hover {
+    background: #ffd200;
+    transform: translateY(-2px);
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.servicio {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(127, 83, 172, 0.1);
+    margin-bottom: 3rem;
+    padding: clamp(1.5rem, 5vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.servicio:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(127, 83, 172, 0.2);
+}
+
+.servicio-img {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 15px;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 10px 20px rgba(127, 83, 172, 0.15);
+    object-fit: cover;
+    height: auto;
+}
+
+#inicio .servicio-img {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 10px 20px rgba(127, 83, 172, 0.15);
+}
+
+.servicio-video {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    aspect-ratio: 16/9;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 24px rgba(127, 83, 172, 0.15);
+    object-fit: cover;
+}
+
+.servicio h2 {
+    color: #7f53ac;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.servicio p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.contacto p {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    text-align: center;
+}
+
+.contacto a {
+    color: #7f53ac;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contacto a:hover {
+    color: #9d50bb;
+}
+
+.loteria {
+    background: linear-gradient(135deg, #f7971e 0%, #ffd200 50%, #ffed4e 100%);
+    color: #333;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(247, 151, 30, 0.2);
+    margin-bottom: 3rem;
+    padding: clamp(1.5rem, 5vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.loteria::before {
+    content: '🎉 SORTEO ACTIVO 🎉';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #7f53ac;
+    color: #fff;
+    padding: 0.5rem 2rem;
+    border-radius: 20px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.05); }
+}
+
+.boleto-loteria {
+    position: relative;
+    background: #fff;
+    border: 3px dashed #f7971e;
+    border-radius: 15px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.premios-destacados h3 {
+    color: #7f53ac;
+    text-align: center;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+}
+
+.lista-premios {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    width: 100%;
+}
+
+.lista-premios li {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border-left: 4px solid #ffd200;
+}
+
+.lista-premios li:hover {
+    transform: scale(1.05) rotate(1deg);
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(247, 151, 30, 0.2);
+}
+
+.icono {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.fidelidad h3 {
+    color: #7f53ac;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.flayer {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: clamp(1rem, 3vw, 1.5rem);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.flayer:hover {
+    transform: translateY(-2px);
+}
+
+.flayer h4 {
+    color: #f7971e;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.flayer ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    font-size: clamp(0.95rem, 2vw, 1rem);
+}
+
+.testimonios {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.testimonios h4 {
+    color: #7f53ac;
+    margin-bottom: 1rem;
+}
+
+.testimonios blockquote {
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 1rem;
+    border-left: 4px solid #ffd200;
+    margin: 1rem 0;
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease;
+}
+
+.testimonios blockquote:hover {
+    box-shadow: 0 4px 12px rgba(247, 151, 30, 0.2);
+}
+
+.btn-participar {
+    background: #7f53ac;
+    color: #fff;
+    border: none;
+    padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(127, 83, 172, 0.3);
+    display: block;
+    margin: 1rem auto;
+    min-height: 44px; /* Accesible en touch */
+}
+
+.btn-participar:hover,
+.btn-participar:active {
+    background: #9d50bb;
+    transform: translateY(-2px);
+}
+
+.contacto-boton {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: #7f53ac;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+}
+
+footer {
+    background: linear-gradient(135deg, #7f53ac 0%, #9d50bb 100%);
+    color: #fff;
+    text-align: center;
+    padding: clamp(1rem, 3vw, 2rem) 0;
+    margin-top: 3rem;
+    box-shadow: 0 -4px 20px rgba(127, 83, 172, 0.2);
+}
+
+footer a {
+    color: #ffd200;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+/* Estilos para subsecciones en restaurante africano */
+.subseccion {
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.subseccion h3 {
+    color: #7f53ac;
+    text-align: center;
+    border-bottom: 2px solid #f7971e;
+    padding-bottom: 1rem;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    margin-bottom: 1rem;
+}
+
+.subseccion p {
+    text-align: center;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+}
+
+/* Nuevos estilos para álbum de imágenes */
+.album {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 20vw, 250px), 1fr));
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 16px rgba(127, 83, 172, 0.1);
+}
+
+/* Estilo especial para la imagen de inicio: no como álbum */
+#inicio .album {
+    grid-template-columns: 1fr;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    gap: 0;
+}
+
+#inicio .album-img {
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    transition: none; /* Sin efectos de expansión */
+    width: 100%;
+}
+
+#inicio .album-img:hover {
+    transform: none; /* Sin expansión en inicio */
+    box-shadow: 0 4px 12px rgba(127, 83, 172, 0.15); /* Mantener sombra base */
+}
+
+.album-img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Transición suave y profesional */
+    box-shadow: 0 4px 12px rgba(127, 83, 172, 0.15);
+    cursor: zoom-in; /* Cursor de lupa para indicar expansión */
+    overflow: hidden;
+}
+
+/* Estilos para figuras con caption */
+.album figure {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.album figcaption {
+    font-weight: 600;
+    color: #7f53ac;
+    margin-top: 0.75rem;
+    text-align: center;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    background: rgba(127, 83, 172, 0.1);
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 100%;
+    transition: background 0.3s ease;
+}
+
+.album figcaption:hover {
+    background: rgba(127, 83, 172, 0.2);
+}
+
+.album-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(127, 83, 172, 0.1); /* Overlay sutil para enfoque */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.album-img::after {
+    content: '🔍';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 2.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    color: #7f53ac;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.album-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 16px 48px rgba(127, 83, 172, 0.3); /* Sombra expandida para profundidad */
+    z-index: 10;
+}
+
+.album-img:hover::before {
+    opacity: 1; /* Mostrar overlay en hover */
+}
+
+.album-img:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1; /* Icono de zoom visible */
+}
+
+/* Estilos mejorados para menús desplegables tipo carta de restaurante */
+.menu-desplegable {
+    width: 100%;
+    margin-top: 2rem;
+    background: linear-gradient(145deg, #fdfcfb, #f0ede6); /* Textura papel antiguo */
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.5);
+    border: 1px solid #e0d7c3;
+    overflow: hidden;
+    animation: unfold 0.5s ease-out;
+}
+
+@keyframes unfold {
+    from { opacity: 0; transform: scaleY(0.8); }
+    to { opacity: 1; transform: scaleY(1); }
+}
+
+.menu-desplegable summary {
+    padding: 1.5rem;
+    font-weight: 700;
+    color: #7f53ac;
+    cursor: pointer;
+    background: linear-gradient(135deg, #fffdf9, #f8f4e6);
+    border-bottom: 2px solid #f7971e;
+    font-size: 1.3rem;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.menu-desplegable summary:hover {
+    background: linear-gradient(135deg, #f8f4e6, #fffdf9);
+    transform: translateY(-1px);
+}
+
+.menu-desplegable details[open] summary {
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 2px 8px rgba(247,151,30,0.2);
+}
+
+.menu-desplegable ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-desplegable li {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e8e3d0;
+    transition: background 0.3s ease;
+    position: relative;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.menu-desplegable li:hover {
+    background: rgba(247,151,30,0.05);
+    transform: translateX(5px);
+}
+
+.menu-desplegable li:last-child {
+    border-bottom: none;
+}
+
+.menu-desplegable h4 {
+    color: #f7971e;
+    margin: 1.5rem 1.5rem 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding-left: 0.5rem;
+    border-left: 4px solid #ffd200;
+    background: rgba(255,210,0,0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 0 8px 8px 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+.menu-desplegable div {
+    max-height: 60vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #f7971e #f0ede6;
+}
+
+.menu-desplegable div::-webkit-scrollbar {
+    width: 6px;
+}
+
+.menu-desplegable div::-webkit-scrollbar-track {
+    background: #f0ede6;
+}
+
+.menu-desplegable div::-webkit-scrollbar-thumb {
+    background: #f7971e;
+    border-radius: 3px;
+}
+
+.contacto-menu {
+    text-align: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8f4e6, #fffdf9);
+    border-top: 2px solid #f7971e;
+    margin-top: 1rem;
+    border-radius: 0 0 20px 20px;
+    font-weight: 600;
+    color: #7f53ac;
+}
+
+/* Responsive para álbum y general (mejorado para móviles Android/iPhone) */
+@media (max-width: 768px) {
+    header h1 { 
+        font-size: clamp(1.5rem, 6vw, 2rem); 
+    }
+    .nav-menu ul { 
+        gap: 0.125rem;
+        padding: 0 0.5rem;
+    }
+    .nav-menu ul li a {
+        padding: 0.4rem 0.6rem;
+        font-size: clamp(0.6rem, 2vw, 0.8rem);
+        min-height: 40px;
+    }
+    .servicio, .loteria { 
+        padding: clamp(1rem, 4vw, 1.5rem); 
+        margin-bottom: 2rem;
+    }
+    .lista-premios { 
+        grid-template-columns: 1fr; 
+        gap: 0.75rem;
+    }
+    .flayer { 
+        padding: clamp(0.75rem, 2vw, 1rem); 
+    }
+    .album {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        padding: 0.5rem;
+    }
+    #inicio .album-img {
+        aspect-ratio: 16/9;
+    }
+    .subseccion h3 {
+        font-size: clamp(1.2rem, 4vw, 1.5rem);
+    }
+    /* Videos en móviles: altura ajustada */
+    .servicio-video {
+        max-width: 100%;
+        aspect-ratio: 16/9;
+    }
+    /* Footer y contacto en móviles */
+    .contacto p {
+        font-size: clamp(0.9rem, 2.5vw, 1rem);
+        line-height: 1.4;
+    }
+    iframe {
+        height: 250px;
+    }
+    .btn-todos {
+        width: 100%;
+        max-width: 300px;
+    }
+    /* Responsive para menús desplegables */
+    .menu-desplegable {
+        margin-top: 1rem;
+    }
+    .menu-desplegable ul {
+        padding: 0.75rem;
+    }
+    .menu-desplegable li {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+    .menu-desplegable div {
+        max-height: 50vh;
+    }
+}
+
+/* Mejora para pantallas muy pequeñas (ej. iPhone SE) */
+@media (max-width: 480px) {
+    header {
+        padding: 0.5rem 0;
+    }
+    .servicio, .loteria {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    .subseccion {
+        margin-top: 1.5rem;
+    }
+    .flayer ul {
+        padding-left: 1rem;
+        font-size: 0.95rem;
+    }
+    .btn-participar, .btn-todos {
+        width: 100%;
+        padding: 1rem;
+    }
+    .nav-menu ul li a {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.7rem;
+    }
+}
+
+/* Mejora accesibilidad: focus visible para navegación por teclado y touch */
+nav ul li a:focus,
+.btn-todos:focus,
+.btn-participar:focus,
+.menu-desplegable summary:focus {
+    outline: 2px solid #ffd200;
+    outline-offset: 2px;
+}
+
+/* Prevenir zoom en inputs en iOS */
+input, textarea {
+    font-size: 16px; /* Mínimo para evitar zoom en iOS */
+}
+
+/* FORCE: Menú horizontal absoluto */
+header nav.nav-menu ul {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    gap: 0.25rem !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+header nav.nav-menu ul li {
+    display: list-item !important;
+    float: none !important;
+    flex-shrink: 0 !important;
+}
+
+header nav.nav-menu ul li a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+}
